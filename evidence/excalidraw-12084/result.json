@@ -1,0 +1,122 @@
+[
+  {
+    "attempt": 1,
+    "url": "https://excalidraw.com",
+    "browser": "Playwright Chromium",
+    "version": "live deployment, commit unknown",
+    "snapshots": [
+      {
+        "viewport_width": 1440,
+        "name": "desktop",
+        "swatch_count": 5,
+        "menu_box": {
+          "x": 16,
+          "y": 60,
+          "width": 229.6875,
+          "height": 648
+        },
+        "picker_box": {
+          "x": 201.6875,
+          "y": 670,
+          "width": 26,
+          "height": 26
+        }
+      },
+      {
+        "viewport_width": 800,
+        "name": "tablet",
+        "swatch_count": 0,
+        "menu_box": {
+          "x": 16,
+          "y": 60,
+          "width": 229.6875,
+          "height": 654
+        },
+        "picker_box": {
+          "x": 114.84375,
+          "y": 670,
+          "width": 32,
+          "height": 32
+        }
+      },
+      {
+        "viewport_width": 1440,
+        "name": "restored",
+        "swatch_count": 5,
+        "menu_box": {
+          "x": 16,
+          "y": 60,
+          "width": 229.6875,
+          "height": 648
+        },
+        "picker_box": {
+          "x": 201.6875,
+          "y": 670,
+          "width": 26,
+          "height": 26
+        }
+      }
+    ],
+    "reproduced": true
+  },
+  {
+    "attempt": 2,
+    "url": "https://excalidraw.com",
+    "browser": "Playwright Chromium",
+    "version": "live deployment, commit unknown",
+    "snapshots": [
+      {
+        "viewport_width": 1440,
+        "name": "desktop",
+        "swatch_count": 5,
+        "menu_box": {
+          "x": 16,
+          "y": 60,
+          "width": 229.6875,
+          "height": 648
+        },
+        "picker_box": {
+          "x": 201.6875,
+          "y": 670,
+          "width": 26,
+          "height": 26
+        }
+      },
+      {
+        "viewport_width": 800,
+        "name": "tablet",
+        "swatch_count": 0,
+        "menu_box": {
+          "x": 16,
+          "y": 60,
+          "width": 229.6875,
+          "height": 654
+        },
+        "picker_box": {
+          "x": 114.84375,
+          "y": 670,
+          "width": 32,
+          "height": 32
+        }
+      },
+      {
+        "viewport_width": 1440,
+        "name": "restored",
+        "swatch_count": 5,
+        "menu_box": {
+          "x": 16,
+          "y": 60,
+          "width": 229.6875,
+          "height": 648
+        },
+        "picker_box": {
+          "x": 201.6875,
+          "y": 670,
+          "width": 26,
+          "height": 26
+        }
+      }
+    ],
+    "reproduced": true
+  }
+]
