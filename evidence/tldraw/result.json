@@ -1,0 +1,33 @@
+{
+  "repo": "tldraw/tldraw",
+  "source_url": "https://github.com/tldraw/tldraw/issues/10617",
+  "demo_url": "https://github.com/drPod/swarmci-demo/issues/7",
+  "status": "reproduced",
+  "observed": "Reported note variant reproduced in real public tldraw app. Rectangle resized from 400x400 at (300.125,200.125) to 600x600 with same origin. Ungrouped 200x200 note moved from (400.125,300.125) to (500.125,400.125), remaining centered. After undo and grouping, identical bottom-right drag moved note to (600.125,500.125): 100px excess displacement in both axes.",
+  "steps": [
+    "Open https://www.tldraw.com in fresh unauthenticated Chromium context at 1440x1000.",
+    "Using rectangle tool, draw from (300,200) to (700,600). Using note tool, place note at (500,400).",
+    "Escape, select tool, Cmd+A; drag bottom-right handle (700,600) to (900,800). Capture ungrouped control.",
+    "Cmd+Z; Cmd+G. Confirm group in DOM and capture grouped before.",
+    "Repeat same bottom-right drag; capture grouped after screenshot and DOM bounds."
+  ],
+  "evidence_paths": [
+    "/Users/darshpoddar/Coding/gradient-hackathon/artifacts/demo-workers/tldraw--tldraw/grouped-after.json",
+    "/Users/darshpoddar/Coding/gradient-hackathon/artifacts/demo-workers/tldraw--tldraw/grouped-after.png",
+    "/Users/darshpoddar/Coding/gradient-hackathon/artifacts/demo-workers/tldraw--tldraw/grouped-before.json",
+    "/Users/darshpoddar/Coding/gradient-hackathon/artifacts/demo-workers/tldraw--tldraw/grouped-before.png",
+    "/Users/darshpoddar/Coding/gradient-hackathon/artifacts/demo-workers/tldraw--tldraw/initial.png",
+    "/Users/darshpoddar/Coding/gradient-hackathon/artifacts/demo-workers/tldraw--tldraw/page@1dcb91ddcfea67a705d5e140b02de743.webm",
+    "/Users/darshpoddar/Coding/gradient-hackathon/artifacts/demo-workers/tldraw--tldraw/page@4dfd5d7f8e480145150a4b4ffe2fcca5.webm",
+    "/Users/darshpoddar/Coding/gradient-hackathon/artifacts/demo-workers/tldraw--tldraw/repro.py",
+    "/Users/darshpoddar/Coding/gradient-hackathon/artifacts/demo-workers/tldraw--tldraw/ungrouped-after.json",
+    "/Users/darshpoddar/Coding/gradient-hackathon/artifacts/demo-workers/tldraw--tldraw/ungrouped-after.png",
+    "/Users/darshpoddar/Coding/gradient-hackathon/artifacts/demo-workers/tldraw--tldraw/ungrouped-before.json",
+    "/Users/darshpoddar/Coding/gradient-hackathon/artifacts/demo-workers/tldraw--tldraw/ungrouped-before.png"
+  ],
+  "limitation": "Tested note variant explicitly included in source issue; bookmark and nested-group variants not tested. Public deployment commit/version unknown. Single Chromium run with ungrouped control; no login or remote document sharing. Evidence is locally saved, not uploaded to GitHub.",
+  "exact_match": {
+    "title": true,
+    "body": true
+  }
+}

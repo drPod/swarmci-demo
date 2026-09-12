@@ -1,0 +1,35 @@
+[
+  {
+    "id": "shape:AGOpeZyffb3EMIfxSkNK5",
+    "type": "geo",
+    "rect": {
+      "x": 300.125,
+      "y": 200.125,
+      "w": 600,
+      "h": 600
+    },
+    "html": "<div data-shape-type=\"geo\" data-shape-is-filled=\"false\" data-shape-id=\"shape:AGOpeZyffb3EMIfxSkNK5\" draggable=\"false\" class=\"tl-shape\" style=\"opacity: 1; z-index: 8001; display: block; transform: matrix(1, 0, 0, 1, 300, 200); width: 600px; height: 600px;\"><svg class=\"tl-svg-container\" aria-hidden=\"true\"><path stroke-width=\"3.5\" d=\"M 7.8212 0.4101 L 593.9011 -0.6313 Q 600.9011 -0.6313 600.9011 6.3687 L 599.2896 593.458 Q 599.2896 600.458 592.2896 600.458 L 6.7208 599.3885 Q -0.2792 599.3885 -0.27"
+  },
+  {
+    "id": "shape:ruuBa_1Iv_0NrhpnY_6bC",
+    "type": "group",
+    "rect": {
+      "x": 400.125,
+      "y": 300.125,
+      "w": 600,
+      "h": 600
+    },
+    "html": "<div data-shape-type=\"group\" data-shape-is-filled=\"false\" data-shape-id=\"shape:ruuBa_1Iv_0NrhpnY_6bC\" draggable=\"false\" class=\"tl-shape\" style=\"opacity: 1; z-index: 8000; display: block; transform: matrix(1, 0, 0, 1, 400, 300); width: 600px; height: 600px;\"></div>"
+  },
+  {
+    "id": "shape:xJbYW6x8zC3LWeFo3FzWC",
+    "type": "note",
+    "rect": {
+      "x": 600.125,
+      "y": 500.125,
+      "w": 200,
+      "h": 200
+    },
+    "html": "<div data-shape-type=\"note\" data-shape-is-filled=\"false\" data-shape-id=\"shape:xJbYW6x8zC3LWeFo3FzWC\" draggable=\"false\" class=\"tl-shape\" style=\"opacity: 1; z-index: 8002; display: block; transform: matrix(1, 0, 0, 1, 600, 500); width: 200px; height: 200px;\"><div id=\"shape:xJbYW6x8zC3LWeFo3FzWC\" class=\"tl-note__container\" style=\"width: 200px; height: 200px; background-color: rgb(252, 225, 156); border-bottom-width: medium; border-bottom-style: none; border-bottom-color: currentcolor; box-shadow: r"
+  }
+]
