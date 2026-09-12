@@ -1,0 +1,29 @@
+{
+  "repo": "jgraph/drawio",
+  "source_url": "https://github.com/jgraph/drawio/issues/5082",
+  "demo_url": "https://github.com/drPod/swarmci-demo/issues/10",
+  "status": "not-reproduced",
+  "observed": "On public diagrams.net v31.4.5, both Lists visibly retained Item 1, Item 2, and Item 3 inside their borders after sequential drops into the Horizontal Flow Layout. No detached items observed.",
+  "steps": [
+    "Open https://app.diagrams.net/?splash=0&storage=device in a fresh unauthenticated Chromium context, viewport 1600x1100.",
+    "Expand Advanced and Entity Relation palettes.",
+    "Drag two Entity Relation List templates and one Advanced Horizontal Flow Layout template onto the real editor canvas.",
+    "Drag first List by header into empty lower space in the layout; capture screenshot.",
+    "Drag second List by header into empty right/lower space in the outer layout; capture screenshot.",
+    "Inspect both Lists and Help menu version (v31.4.5)."
+  ],
+  "evidence_paths": [
+    "/Users/darshpoddar/Coding/gradient-hackathon/artifacts/demo-workers/jgraph--drawio/palette.png",
+    "/Users/darshpoddar/Coding/gradient-hackathon/artifacts/demo-workers/jgraph--drawio/final.png",
+    "/Users/darshpoddar/Coding/gradient-hackathon/artifacts/demo-workers/jgraph--drawio/second-drop-highlight.png",
+    "/Users/darshpoddar/Coding/gradient-hackathon/artifacts/demo-workers/jgraph--drawio/first-drop-highlight.png",
+    "/Users/darshpoddar/Coding/gradient-hackathon/artifacts/demo-workers/jgraph--drawio/initial.png",
+    "/Users/darshpoddar/Coding/gradient-hackathon/artifacts/demo-workers/jgraph--drawio/setup.png",
+    "/Users/darshpoddar/Coding/gradient-hackathon/artifacts/demo-workers/jgraph--drawio/first-list.png",
+    "/Users/darshpoddar/Coding/gradient-hackathon/artifacts/demo-workers/jgraph--drawio/second-list.png",
+    "/Users/darshpoddar/Coding/gradient-hackathon/artifacts/demo-workers/jgraph--drawio/video/page@f89cf5b8a3488189c354e3ff160da12f.webm"
+  ],
+  "limitation": "One run on current public v31.4.5 using headless Chromium, rather than reporter v27.0.5 on Windows. Visual containment checked; no historical-version test.",
+  "tested_version": "31.4.5",
+  "comment_url": "https://github.com/drPod/swarmci-demo/issues/10#issuecomment-5649301618"
+}
