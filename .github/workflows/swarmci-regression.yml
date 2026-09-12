@@ -1,0 +1,51 @@
+name: SwarmCI browser regression
+on:
+  pull_request:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  regression:
+    name: "${{ matrix.variant }} product"
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    strategy:
+      fail-fast: false
+      matrix:
+        variant: [buggy, fixed]
+    defaults:
+      run:
+        working-directory: .swarmci
+    env:
+      RESPAN_ENABLED: 'false'
+      ANONYMIZED_TELEMETRY: 'false'
+      VARIANT: ${{ matrix.variant }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@v6
+      - run: uv sync --frozen
+      - run: uv run playwright install --with-deps chromium
+      - name: Start isolated Component Lab fixture
+        run: |
+          python3 -m http.server 8080 --bind 127.0.0.1 --directory swarmci/static > /tmp/fixture.log 2>&1 &
+          for i in {1..30}; do curl -fsS http://127.0.0.1:8080/fixture.html > /dev/null && exit 0; sleep 1; done
+          exit 1
+      - name: Replay verified regression
+        run: |
+          target='http://127.0.0.1:8080/fixture.html'
+          if [[ "$VARIANT" == fixed ]]; then target="$target?fixed=1"; fi
+          status=0
+          for manifest in ../regressions/*.json; do
+            uv run swarmci replay "$manifest" --target-url "$target" --output "artifacts/ci/$(basename "$manifest" .json)" || status=$?
+          done
+          exit "$status"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: "swarmci-${{ matrix.variant }}-video-trace-junit"
+          path: .swarmci/artifacts/ci/
+      - name: Evidence summary
+        if: always()
+        run: |
+          echo "## SwarmCI: $VARIANT product" >> "$GITHUB_STEP_SUMMARY"
+          echo 'The buggy fixture should fail; the fixed fixture should pass. Download this job’s video, trace and JUnit artifacts.' >> "$GITHUB_STEP_SUMMARY"

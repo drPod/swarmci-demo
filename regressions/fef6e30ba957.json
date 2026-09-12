@@ -1,0 +1,93 @@
+{
+  "version": 1,
+  "target": {
+    "name": "Component Lab \u00b7 nested overrides",
+    "url": "http://127.0.0.1:8080/fixture",
+    "issue_url": "",
+    "objective": "Explore component grouping, duplication, swap, reset, and undo in different orders.",
+    "setup": [],
+    "assertions": [
+      {
+        "name": "Component editor remains visible",
+        "kind": "visible",
+        "selector": "#canvas",
+        "expected": "",
+        "attribute": "",
+        "after_action": ""
+      }
+    ],
+    "failure_selector": "[data-testid=error]",
+    "state_probe": "() => window.__swarmState()",
+    "storage_state": null,
+    "isolation": "fixture",
+    "allowed_domains": [],
+    "seed_ready": true,
+    "notes": "Controlled fixture inspired by Penpot #11656. This is not evidence of a Penpot reproduction."
+  },
+  "actions": [
+    {
+      "kind": "click",
+      "selector": "[data-testid=\"group\"]",
+      "value": "",
+      "label": "Add intermediate group",
+      "x": null,
+      "y": null,
+      "end_x": null,
+      "end_y": null,
+      "button": "left",
+      "clear": true
+    },
+    {
+      "kind": "click",
+      "selector": "[data-testid=\"duplicate\"]",
+      "value": "",
+      "label": "Duplicate card",
+      "x": null,
+      "y": null,
+      "end_x": null,
+      "end_y": null,
+      "button": "left",
+      "clear": true
+    },
+    {
+      "kind": "click",
+      "selector": "[data-testid=\"swap\"]",
+      "value": "",
+      "label": "Swap nested component",
+      "x": null,
+      "y": null,
+      "end_x": null,
+      "end_y": null,
+      "button": "left",
+      "clear": true
+    },
+    {
+      "kind": "click",
+      "selector": "[data-testid=\"reset\"]",
+      "value": "",
+      "label": "Reset overrides",
+      "x": null,
+      "y": null,
+      "end_x": null,
+      "end_y": null,
+      "button": "left",
+      "clear": true
+    }
+  ],
+  "assertions": [
+    {
+      "name": "Component editor remains visible",
+      "kind": "visible",
+      "selector": "#canvas",
+      "expected": "",
+      "attribute": "",
+      "after_action": ""
+    },
+    {
+      "kind": "hidden",
+      "selector": "[data-testid=error]",
+      "name": "No application error screen"
+    }
+  ],
+  "recorded_status": "verified"
+}
