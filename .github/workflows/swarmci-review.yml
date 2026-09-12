@@ -1,0 +1,61 @@
+name: SwarmCI · Penpot browser review
+on:
+  pull_request:
+    paths: ['.swarmci-review/**', '.github/workflows/swarmci-review.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+  checks: write
+  pull-requests: write
+jobs:
+  browser-review:
+    name: 'Penpot 2.17.2 · nested reset regression'
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env:
+      PENPOT_VERSION: '2.17.2'
+      PENPOT_EMAIL: 'ci@swarmci.local'
+      PENPOT_PASSWORD: 'Disposable-local-CI-account-2026'
+      PENPOT_EVIDENCE: 'artifacts/penpot-verified'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: pip install playwright==1.58.0 pytest==8.4.2
+      - run: python -m playwright install --with-deps chromium
+      - name: Start official Penpot release
+        run: |
+          docker compose -p swarmci-penpot -f .swarmci-review/compose.local.yaml up -d
+          for i in {1..120}; do
+            if curl -fsS http://localhost:9001/api/rpc/command/get-profile > /dev/null; then break; fi
+            sleep 2
+          done
+          docker compose -p swarmci-penpot -f .swarmci-review/compose.local.yaml exec -T penpot-backend python3 manage.py create-profile --skip-tutorial --skip-walkthrough -n 'SwarmCI CI' -e "$PENPOT_EMAIL" -p "$PENPOT_PASSWORD"
+      - name: Independently replay both interaction paths twice
+        run: pytest .swarmci-review/test_reset.py -q --junitxml=artifacts/penpot-verified/junit.xml
+      - name: Publish native GitHub test results
+        if: always()
+        uses: dorny/test-reporter@v2
+        with:
+          name: 'SwarmCI · verified behavior'
+          path: artifacts/penpot-verified/junit.xml
+          reporter: java-junit
+          fail-on-error: 'false'
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: penpot-browser-evidence
+          path: artifacts/penpot-verified/
+      - name: Prepare evidence review
+        if: always()
+        run: python .swarmci-review/summarize.py
+      - name: Update PR review
+        if: always() && github.event_name == 'pull_request'
+        uses: marocchino/sticky-pull-request-comment@v2
+        with:
+          header: swarmci-penpot-review
+          path: artifacts/penpot-verified/review.md
+      - name: Stop isolated app
+        if: always()
+        run: docker compose -p swarmci-penpot -f .swarmci-review/compose.local.yaml down

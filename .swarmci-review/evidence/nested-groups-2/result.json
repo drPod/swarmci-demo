@@ -1,0 +1,29 @@
+{
+  "variant": "nested-groups",
+  "repetition": 2,
+  "version": "2.17.2",
+  "source_issue": "https://github.com/penpot/penpot/issues/11656",
+  "source_pr": "https://github.com/penpot/penpot/pull/11604",
+  "status": "failed",
+  "steps": [
+    "1 \u00b7 Prepared parent component: two intermediate groups",
+    "2 \u00b7 Duplicate the parent and select its nested Blue Button",
+    "3 \u00b7 Swap the nested component to Orange Button",
+    "4 \u00b7 Choose Reset overrides \u2014 expected: Blue Button returns",
+    "FAIL \u00b7 Orange Button remains after Reset overrides."
+  ],
+  "error_page_observed": false,
+  "expected": "Reset overrides restores the nested Blue Button component.",
+  "layer_names_after_reset": [
+    "Orange Button",
+    "Card",
+    "Group",
+    "Nested Group",
+    "Orange Button",
+    "Card",
+    "Control Card",
+    "Blue Button"
+  ],
+  "observed": "Orange Button remains after Reset overrides.",
+  "error": "Orange Button remains after Reset overrides.\nassert False"
+}
