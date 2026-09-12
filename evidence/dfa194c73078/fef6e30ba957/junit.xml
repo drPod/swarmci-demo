@@ -1,0 +1,2 @@
+<?xml version='1.0' encoding='utf-8'?>
+<testsuite name="SwarmCI" tests="2" failures="1" errors="0"><testcase name="Component editor remains visible" classname="Component Lab · nested overrides" /><testcase name="No application error screen" classname="Component Lab · nested overrides"><failure message="No application error screen">{"name": "No application error screen", "passed": false, "rule": {"name": "No application error screen", "kind": "hidden", "selector": "[data-testid=error]", "expected": "", "attribute": "", "after_action": ""}}</failure></testcase></testsuite>
