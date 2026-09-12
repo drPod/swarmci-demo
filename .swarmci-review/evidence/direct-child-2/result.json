@@ -1,0 +1,26 @@
+{
+  "variant": "direct-child",
+  "repetition": 2,
+  "version": "2.17.2",
+  "source_issue": "https://github.com/penpot/penpot/issues/11656",
+  "source_pr": "https://github.com/penpot/penpot/pull/11604",
+  "status": "passed",
+  "steps": [
+    "1 \u00b7 Prepared parent component: direct child, no group",
+    "2 \u00b7 Duplicate the parent and select its nested Blue Button",
+    "3 \u00b7 Swap the nested component to Orange Button",
+    "4 \u00b7 Choose Reset overrides \u2014 expected: Blue Button returns",
+    "PASS \u00b7 Original Blue Button restored."
+  ],
+  "error_page_observed": false,
+  "expected": "Reset overrides restores the nested Blue Button component.",
+  "layer_names_after_reset": [
+    "Orange Button",
+    "Card",
+    "Control Card",
+    "Blue Button",
+    "Control Card",
+    "Blue Button"
+  ],
+  "observed": "Original Blue Button restored."
+}
