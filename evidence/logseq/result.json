@@ -1,0 +1,29 @@
+{
+  "repo": "logseq/logseq",
+  "source_url": "https://github.com/logseq/logseq/issues/12122",
+  "demo_url": "https://github.com/drPod/swarmci-demo/issues/23",
+  "status": "reproduced",
+  "observed": "Original input renders literal <kbd>Alt</kbd>; rendered DOM contains only one kbd element (backtick). Adding a space after the opening parenthesis renders Alt and backtick as two kbd elements.",
+  "steps": [
+    "Open https://demo.logseq.com in a fresh unauthenticated Playwright Chromium context.",
+    "Click the welcome block and replace its contents with the source note text (the editor supplies the bullet).",
+    "Click the tutorial block to leave edit mode; capture screenshot and rendered DOM.",
+    "Repeat in a separate fresh context with a space after the opening parenthesis; capture control screenshot and DOM."
+  ],
+  "evidence_paths": [
+    "/Users/darshpoddar/Coding/gradient-hackathon/artifacts/demo-workers/logseq--logseq/original-editing.png",
+    "/Users/darshpoddar/Coding/gradient-hackathon/artifacts/demo-workers/logseq--logseq/original-rendered.png",
+    "/Users/darshpoddar/Coding/gradient-hackathon/artifacts/demo-workers/logseq--logseq/control-editing.png",
+    "/Users/darshpoddar/Coding/gradient-hackathon/artifacts/demo-workers/logseq--logseq/control-rendered.png",
+    "/Users/darshpoddar/Coding/gradient-hackathon/artifacts/demo-workers/logseq--logseq/measurements.json",
+    "/Users/darshpoddar/Coding/gradient-hackathon/artifacts/demo-workers/logseq--logseq/import-audit.json",
+    "/Users/darshpoddar/Coding/gradient-hackathon/artifacts/demo-workers/logseq--logseq/reproduce.py",
+    "/Users/darshpoddar/Coding/gradient-hackathon/artifacts/demo-workers/logseq--logseq/video/page@1367c97cfc6535cf853b0ae678a8644c.webm",
+    "/Users/darshpoddar/Coding/gradient-hackathon/artifacts/demo-workers/logseq--logseq/video/page@3a7c7d7f1a1dd2de77f39ab8bf0be676.webm",
+    "/Users/darshpoddar/Coding/gradient-hackathon/artifacts/demo-workers/logseq--logseq/video/page@3c6546d62172b6b74975ae44a2b42d06.webm",
+    "/Users/darshpoddar/Coding/gradient-hackathon/artifacts/demo-workers/logseq--logseq/video/page@cfbb4f2bd09457470318a8bd212a5f98.webm",
+    "/Users/darshpoddar/Coding/gradient-hackathon/artifacts/demo-workers/logseq--logseq/video/page@e9d999facedd4cda3d00ab226d7f9231.webm"
+  ],
+  "limitation": "Tested public demo web build in Chromium 151.0.7922.34; deployed Logseq version was not established. Reporter used Logseq 0.10.13 Electron/Linux with plugins. No reporter media was used as test evidence. Earlier exploratory attempts encountered locator timeouts; final independent original/control cases completed. Videos include exploratory attempts.",
+  "exact_match": true
+}

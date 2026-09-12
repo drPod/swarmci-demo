@@ -1,0 +1,25 @@
+{
+  "browser_version": "151.0.7922.34",
+  "url": "https://demo.logseq.com/",
+  "cases": [
+    {
+      "case": "original",
+      "input": "Cycle through open windows of the same application (<kbd>Alt</kbd> + <kbd>`</kbd>)",
+      "text": "Cycle through open windows of the same application (<kbd>Alt</kbd> + `)",
+      "html": "<div class=\"flex flex-row justify-between block-content-inner\"><div class=\"flex-1 w-full\"><span class=\"inline\">Cycle through open windows of the same application (&lt;kbd&gt;Alt&lt;/kbd&gt; + <span><kbd>`</kbd></span>)</span></div></div>",
+      "kbd_texts": [
+        "`"
+      ]
+    },
+    {
+      "case": "control",
+      "input": "Cycle through open windows of the same application ( <kbd>Alt</kbd> + <kbd>`</kbd>)",
+      "text": "Cycle through open windows of the same application ( Alt + `)",
+      "html": "<div class=\"flex flex-row justify-between block-content-inner\"><div class=\"flex-1 w-full\"><span class=\"inline\">Cycle through open windows of the same application ( <span><kbd>Alt</kbd></span> + <span><kbd>`</kbd></span>)</span></div></div>",
+      "kbd_texts": [
+        "Alt",
+        "`"
+      ]
+    }
+  ]
+}
